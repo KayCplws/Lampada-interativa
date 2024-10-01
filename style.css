@@ -1,0 +1,198 @@
+:root{
+    --white: #d5d5d5;
+    --dark: #111;
+    --lamp: #35353532;
+    --switch: #dcdcdc;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content : center;
+    background-color: var(--dark);
+}
+
+body.on{
+    background: linear-gradient(#555, var(--dark));
+}
+
+body.on .bulb-neck{
+    background-color: #fff;
+}
+
+body.on .bulb-neck::before {
+    box-shadow:10px 10px 0 0 #fff;
+} 
+
+body.on .bulb-neck::after{
+    box-shadow:-10px 10px 0 0 #fff;
+}
+
+body.on .bulb::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    filter:blur(30px)
+}
+
+body.on .bulb{
+    background-color: #fff;
+    box-shadow: 0 0 50px #fff,
+                0 0 100px #fff,
+                0 0 150px #fff,
+                0 0 200px #fff,
+                0 0 250px #fff,
+                0 0 300px #fff,
+                0 0 350px #fff;
+}
+
+.base{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 10px;
+    background-color: var(--white);
+}
+
+.base::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom-left-radius: 100%;
+    right: 100px;
+    background-color: var(--white);
+}
+
+.base::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom-right-radius: 100%;
+    left: 100px;
+    background-color: var(--white);
+}
+
+.lamp-base{
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    border-bottom: 2px solid #060606;
+    background-color: var(--white);
+}
+
+.lamp-base::before{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-bottom-right-radius: 100%;
+    background: transparent;
+    right: 30px;
+    top: 10px;
+    box-shadow: 2px 2px 0 2px var(--white);
+    rotate: 270deg;
+}
+
+.lamp-base::after{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-bottom-left-radius: 100%;
+    background: transparent;
+    left: 30px;
+    top: 10px;
+    box-shadow: -2px 2px 0 2px var(--white);
+    rotate: 90deg;
+}
+
+.bulb-neck{
+    position: absolute;
+    width: 28px;
+    height: 15px;
+    top: 13px;
+    background-color: var(--lamp);
+}
+
+.bulb-neck::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-bottom-right-radius: 100%;
+    background: transparent;
+    right: 25px;
+    top: -2px;
+    box-shadow:10px 10px 0 0 var(--lamp);
+    rotate: -20deg;
+}
+
+.bulb-neck::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-bottom-left-radius: 100%;
+    background: transparent;
+    right: -17px;
+    top: -2px;
+    box-shadow:-10px 10px 0 0 var(--lamp);
+    rotate: 20deg;
+}
+
+.bulb{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--lamp);
+    border-radius: 50%;
+    top: 20px; 
+}
+
+.switch{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 110px;
+    top: 700px;
+    left: 750px;
+    border-radius: 5px;
+    background-color: var(--switch);
+}
+
+.button{
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #999, #fff, #999);
+}
+
+.button::after{
+    content: '';
+    position: absolute;
+    width: 92%;
+    height: 92%;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: var(--switch);
+}
+
+.on .switch .button::after  {
+    left: 5%;
+}
